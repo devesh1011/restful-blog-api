@@ -1,10 +1,6 @@
 const router = require("express").Router();
 const Blog = require("../models/Blog");
-
-// Error Handler
-const handleError = (res, statusCode, message) => {
-  res.status(statusCode).json({ success: false, error: message });
-};
+const { handleError } = require("../middleware/errorHandler");
 
 // GET all blogs with pagination
 router.get("/blogs", async (req, res) => {
